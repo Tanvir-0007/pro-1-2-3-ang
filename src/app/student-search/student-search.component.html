@@ -1,0 +1,10 @@
+<div class="container mt-4">
+  <h2>Search Students</h2>
+  <div class="mb-3">
+    <label for="search" class="form-label">Student Name</label>
+    <input id="search" type="text" class="form-control" [formControl]="searchControl">
+    <div *ngIf="students.length > 0" class="list-group">
+      <a *ngFor="let student of students" class="list-group-item list-group-item-action">{{ student.name }}</a>
+    </div>
+  </div>
+</div>

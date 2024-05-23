@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <h2>Students</h2>
+  <div class="mb-3">
+    <label for="pageSize" class="form-label">Page Size</label>
+    <select id="pageSize" class="form-select" #pageSizeSelect (change)="changePageSize(+pageSizeSelect.value)">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Roll</th>
+      <th>Section</th>
+      <th>Class</th>
+      <th>Email</th>
+      <th>Date of Birth</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.roll }}</td>
+      <td>{{ student.section }}</td>
+      <td>{{ student.studentClass }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.dateOfBirth | date }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="page <= 0">
+        <a class="page-link" (click)="previousPage()">Previous</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link">{{ page + 1 }}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
